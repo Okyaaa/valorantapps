@@ -10,7 +10,7 @@ class APIservice {
 
     try {
       final response =
-          await http.get(Uri.parse("https://ap.api.riotgames.com/val/ranked/v1/leaderboards/by-act/a16955a5-4ad0-f761-5e9e-389df1c892fb?size=50&startIndex=0&api_key=RGAPI-09544a62-6ff2-4b0e-9164-ec16ce1a3436")
+          await http.get(Uri.parse("APIKEY")
       );
       print(response.statusCode.toString());
 

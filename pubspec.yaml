@@ -68,11 +68,16 @@ flutter:
       fonts:
         - asset: fonts/Gilroy-Black.ttf
         - asset: fonts/Gilroy-Bold.ttf
+          weight: 800
         - asset: fonts/Gilroy-Heavy.ttf
         - asset: fonts/Gilroy-Light.ttf
+          weight: 200
         - asset: fonts/Gilroy-Medium.ttf
+          weight: 400
         - asset: fonts/Gilroy-Regular.ttf
+          weight: 300
         - asset: fonts/Gilroy-SemiBold.ttf
+          weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

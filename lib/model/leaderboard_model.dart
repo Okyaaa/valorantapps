@@ -1,6 +1,6 @@
 // To parse this JSON data, do
 //
-//     final leaderboardModel = leaderboardModelFromJson(jsonString);
+
 
 import 'dart:convert';
 
@@ -80,9 +80,9 @@ class Player {
     int competitiveTier;
 
     factory Player.fromJson(Map<String, dynamic> json) => Player(
-        puuid: json["puuid"],
-        gameName: json["gameName"],
-        tagLine: json["tagLine"],
+        puuid: json["puuid"] == null ? null : json["puuid"],
+        gameName: json["gameName"] == null ? null : json["gameName"],
+        tagLine: json["tagLine"] == null ? null : json["tagLine"],
         leaderboardRank: json["leaderboardRank"],
         rankedRating: json["rankedRating"],
         numberOfWins: json["numberOfWins"],
@@ -90,9 +90,9 @@ class Player {
     );
 
     Map<String, dynamic> toJson() => {
-        "puuid": puuid,
-        "gameName": gameName,
-        "tagLine": tagLine,
+        "puuid": puuid == null ? null : puuid,
+        "gameName": gameName == null ? null : gameName,
+        "tagLine": tagLine == null ? null : tagLine,
         "leaderboardRank": leaderboardRank,
         "rankedRating": rankedRating,
         "numberOfWins": numberOfWins,

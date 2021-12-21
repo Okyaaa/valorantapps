@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:valoranapps/constants/color_constant.dart';
 import 'package:valoranapps/constants/style_constant.dart';
 
 class LeaderCard extends StatefulWidget {
@@ -26,14 +25,6 @@ class _LeaderCardState extends State<LeaderCard> {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            // boxShadow: [
-            //   BoxShadow(
-            //     color: Colors.grey.withOpacity(0.5),
-            //     spreadRadius: 1,
-            //     blurRadius: 5,
-            //     offset: Offset(0, 4),
-            //   ),
-            // ],
           ),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

@@ -16,12 +16,12 @@ class Leaderboard extends StatefulWidget {
 }
 
 class _LeaderboardState extends State<Leaderboard> {
-  Future<LeaderboardModel> _leaderboard = APIservice().getLeaderboard();
+  Future<LeaderboardModel> _leaderboard = APIservice().getDataLeaderboard();
 
   @override
   void initState() {
     // TODO: implement initState
-    _leaderboard = APIservice().getLeaderboard();
+    _leaderboard = APIservice().getDataLeaderboard();
     super.initState();
   }
 
@@ -37,43 +37,40 @@ class _LeaderboardState extends State<Leaderboard> {
             child: Column(
               children: [
                 Center(
-                  child: Text("Leaderboard",
+                  child: Text(
+                    "Leaderboard",
                     style: leaderboard2,
                   ),
                 ),
                 Center(
-                  child: Lottie.asset(
-                    'assets/star.json',
-                    repeat: true,
-                    width: 200,
-                    height: 200
-                  ),
+                  child: Lottie.asset('assets/star.json',
+                      repeat: true, width: 200, height: 200),
                 ),
-                SizedBox(height: 16,),
+                SizedBox(
+                  height: 16,
+                ),
                 FutureBuilder<LeaderboardModel>(
                     future: _leaderboard,
                     builder: (context, snapshot) {
-                      return ListView.separated(
-                          controller: ScrollController(),
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            if (snapshot.hasData) {
+                      if (snapshot.hasData) {
+                        return ListView.separated(
+                            controller: ScrollController(),
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
                               var _ranking = snapshot.data!.players[index];
                               return LeaderCard(
-                                ranking: index.toString(), 
-                                gameName: _ranking.gameName, 
-                                rating: _ranking.rankedRating.toString()
-                                );
-                            }
-                            else {
-                              return CircularProgressIndicator();
-                            }
-                          },
-                          separatorBuilder: (BuildContext context, index) =>
-                              Divider(
-                                height: 2,
-                              ),
-                          itemCount: snapshot.data!.players.length);
+                                  ranking: index.toString(),
+                                  gameName: _ranking.gameName,
+                                  rating: _ranking.rankedRating.toString());
+                            },
+                            separatorBuilder: (BuildContext context, index) =>
+                                Divider(
+                                  height: 2,
+                                ),
+                            itemCount: 50);
+                      } else {
+                          return SizedBox();
+                      }
                     }),
               ],
             ),

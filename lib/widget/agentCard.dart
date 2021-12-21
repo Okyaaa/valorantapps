@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:valoranapps/constants/color_constant.dart';
 import 'package:valoranapps/constants/style_constant.dart';
 
 class AgentCard extends StatefulWidget {
@@ -29,7 +28,7 @@ class _AgentCardState extends State<AgentCard> {
           borderRadius: BorderRadius.all(Radius.circular(10)),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withOpacity(1),
               spreadRadius: 1,
               blurRadius: 5,
               offset: Offset(0, 4),
@@ -43,12 +42,12 @@ class _AgentCardState extends State<AgentCard> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(widget.ranking!,
-                style: leaderboad1,),
-                Text(widget.gameName!,
-                style: leaderboad1,),
-                Text(widget.rating!,
-                style: leaderboad1,),
+                // Text(widget.ranking!,
+                // style: leaderboad1,),
+                // Text(widget.gameName!,
+                // style: leaderboad1,),
+                // Text(widget.rating!,
+                // style: leaderboad1,),
               ]
             )
           ]

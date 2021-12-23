@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:valoranapps/constants/style_constant.dart';
 
 class LeaderCard extends StatefulWidget {
-  String? ranking;
-  String? gameName;
-  String? rating;
+  String ranking;
+  String gameName;
+  String rating;
 
   LeaderCard(
-      {required this.ranking, required this.gameName, required this.rating});
+      {this.ranking, 
+      this.gameName, 
+      this.rating});
 
   @override
   _LeaderCardState createState() => _LeaderCardState();
@@ -23,8 +25,8 @@ class _LeaderCardState extends State<LeaderCard> {
           width: size.width,
           padding: EdgeInsets.only(left: 24, right: 24, top: 16, bottom: 16),
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+            color: Color.fromRGBO(255, 255, 255, 0.15),
+            borderRadius: BorderRadius.all(Radius.circular(25)),
           ),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -54,12 +56,12 @@ class _LeaderCardState extends State<LeaderCard> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            widget.gameName!,
+                            widget.gameName??'default value',
                             style: leaderboad1,
                             textAlign: TextAlign.left,
                           ),
                           Text(
-                            widget.rating!,
+                            widget.rating + " Rr",
                             style: leaderboard3,
                           ),
                         ],
@@ -67,7 +69,7 @@ class _LeaderCardState extends State<LeaderCard> {
                     ],
                   ),
                   Text(
-                    "# " + widget.ranking!,
+                    "# " + widget.ranking,
                     style: leaderboad1,
                   ),
                 ])

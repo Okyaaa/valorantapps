@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-
-
 import 'dart:convert';
 
 LeaderboardModel leaderboardModelFromJson(String str) => LeaderboardModel.fromJson(json.decode(str));
@@ -10,16 +6,16 @@ String leaderboardModelToJson(LeaderboardModel data) => json.encode(data.toJson(
 
 class LeaderboardModel {
     LeaderboardModel({
-        required this.actId,
-        required this.players,
-        required this.totalPlayers,
-        required this.immortalStartingPage,
-        required this.immortalStartingIndex,
-        required this.topTierRrThreshold,
-        required this.tierDetails,
-        required this.startIndex,
-        required this.query,
-        required this.shard,
+        this.actId,
+        this.players,
+        this.totalPlayers,
+        this.immortalStartingPage,
+        this.immortalStartingIndex,
+        this.topTierRrThreshold,
+        this.tierDetails,
+        this.startIndex,
+        this.query,
+        this.shard,
     });
 
     String actId;
@@ -62,13 +58,13 @@ class LeaderboardModel {
 
 class Player {
     Player({
-        required this.puuid,
-        required this.gameName,
-        required this.tagLine,
-        required this.leaderboardRank,
-        required this.rankedRating,
-        required this.numberOfWins,
-        required this.competitiveTier,
+        this.puuid,
+        this.gameName,
+        this.tagLine,
+        this.leaderboardRank,
+        this.rankedRating,
+        this.numberOfWins,
+        this.competitiveTier,
     });
 
     String puuid;
@@ -80,7 +76,7 @@ class Player {
     int competitiveTier;
 
     factory Player.fromJson(Map<String, dynamic> json) => Player(
-        puuid: json["puuid"] == null ? null : json["puuid"],
+        puuid: json["puuid"],
         gameName: json["gameName"] == null ? null : json["gameName"],
         tagLine: json["tagLine"] == null ? null : json["tagLine"],
         leaderboardRank: json["leaderboardRank"],
@@ -90,9 +86,9 @@ class Player {
     );
 
     Map<String, dynamic> toJson() => {
-        "puuid": puuid == null ? null : puuid,
-        "gameName": gameName == null ? null : gameName,
-        "tagLine": tagLine == null ? null : tagLine,
+        "puuid": puuid,
+        "gameName": gameName,
+        "tagLine": tagLine,
         "leaderboardRank": leaderboardRank,
         "rankedRating": rankedRating,
         "numberOfWins": numberOfWins,
@@ -102,9 +98,9 @@ class Player {
 
 class TierDetail {
     TierDetail({
-        required this.rankedRatingThreshold,
-        required this.startingPage,
-        required this.startingIndex,
+        this.rankedRatingThreshold,
+        this.startingPage,
+        this.startingIndex,
     });
 
     int rankedRatingThreshold;

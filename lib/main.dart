@@ -13,8 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      home: MainScreen(),
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Valorant Apps',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

@@ -1,69 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:valoranapps/constants/color_constant.dart';
 import 'package:valoranapps/screen/homescreen/homescreen.dart';
 import 'package:valoranapps/screen/leaderboard/leaderboard.dart';
 import 'package:valoranapps/screen/tipsscreen/tipsscreen.dart';
-import 'package:bottom_nav_bar/bottom_nav_bar.dart';
+import 'package:flutter/cupertino.dart';
 
 class MainScreen extends StatefulWidget {
-  MainScreen({Key? key}) : super(key: key);
+  MainScreen({Key key}) : super(key: key);
 
   @override
   _MainScreenState createState() => _MainScreenState();
+  
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int currentIndex = 1;
+
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _body(),
-      bottomNavigationBar: _bottomNavBar(),
-    );
-  }
-
-  Widget _body() => SizedBox.expand(
-        child: IndexedStack(
-          index: currentIndex,
-          children: <Widget>[
-            TipsScreen(),
-            HomeScreen(),
-            Leaderboard(),
-          ],
-        ),
-      );
-
-  Widget _bottomNavBar() => BottomNavBar(
-        showElevation: true,
-        selectedIndex: currentIndex,
-        animationDuration: const Duration(milliseconds: 0),
-        backgroundColor: mainBackground,
-        
-        onItemSelected: (index) {
-          setState(() => currentIndex = index);
-        },
-        items: <BottomNavBarItem>[
-          BottomNavBarItem(
-            title: 'Tips',
-            activeBackgroundColor: Colors.transparent,
+    return CupertinoTabScaffold(
+      tabBar: CupertinoTabBar(
+        currentIndex: 1,
+        items: const <BottomNavigationBarItem> [
+          BottomNavigationBarItem(
             icon: Icon(Icons.menu_book_rounded),
-            activeColor: Colors.white,
-            inactiveColor: Colors.grey,
-          ),
-          BottomNavBarItem(
-            title: 'Home',
-            activeBackgroundColor: Colors.transparent,
+            label: "tips"
+            ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            activeColor: Colors.white,
-            inactiveColor: Colors.grey,
-          ),
-          BottomNavBarItem(
-            title: 'Leaderboard',
-            activeBackgroundColor: Colors.transparent,
+            label: "Home"
+            ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.leaderboard),
-            activeColor: Colors.white,
-            inactiveColor: Colors.grey,
-          ),
-        ],
+            label: "Leaderboard"
+            ),
+        ]
+        ), 
+      tabBuilder: (context, index) {
+        switch (index) {
+          case 0:
+            return CupertinoTabView(builder: (context) {
+              return CupertinoPageScaffold(child: TipsScreen());
+            },);
+            case 1:
+            return CupertinoTabView(builder: (context) {
+              return CupertinoPageScaffold(child: HomeScreen());
+            },);
+            case 2:
+            return CupertinoTabView(builder: (context) {
+              return CupertinoPageScaffold(child: Leaderboard());
+            },);
+            default: return CupertinoTabView(builder: (context) {
+              return CupertinoPageScaffold(child: HomeScreen());
+            },);
+        }
+      }
       );
+  }
 }

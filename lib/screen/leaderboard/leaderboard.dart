@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:valoranapps/constants/style_constant.dart';
 import 'package:lottie/lottie.dart';
 import 'package:valoranapps/api_service/api_service.dart';
-import 'package:valoranapps/constants/color_constant.dart';
-import 'package:valoranapps/constants/style_constant.dart';
 import 'package:valoranapps/model/leaderboard_model.dart';
-import 'package:valoranapps/size_config.dart';
-import 'package:valoranapps/widget/agentCard.dart';
 import 'package:valoranapps/widget/leaderCard.dart';
 
 class Leaderboard extends StatefulWidget {
-  Leaderboard({Key? key}) : super(key: key);
+  Leaderboard({Key key}) : super(key: key);
 
   @override
   _LeaderboardState createState() => _LeaderboardState();
 }
 
 class _LeaderboardState extends State<Leaderboard> {
+  // Future<LeaderboardModel> _leaderboard = APIservice().getDataLeaderboard();
   Future<LeaderboardModel> _leaderboard = APIservice().getDataLeaderboard();
 
   @override
   void initState() {
-    // TODO: implement initState
     _leaderboard = APIservice().getDataLeaderboard();
+    
     super.initState();
   }
 
@@ -57,9 +55,10 @@ class _LeaderboardState extends State<Leaderboard> {
                             controller: ScrollController(),
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
-                              var _ranking = snapshot.data!.players[index];
+                              var numRanking = index + 1;
+                              var _ranking = snapshot.data.players[index];
                               return LeaderCard(
-                                  ranking: index.toString(),
+                                  ranking: numRanking.toString(),
                                   gameName: _ranking.gameName,
                                   rating: _ranking.rankedRating.toString());
                             },
@@ -80,3 +79,20 @@ class _LeaderboardState extends State<Leaderboard> {
     );
   }
 }
+
+// class Leaderboard extends StatefulWidget {
+//   Leaderboard({Key key}) : super(key: key);
+
+//   @override
+//   _LeaderboardState createState() => _LeaderboardState();
+// }
+
+// class _LeaderboardState extends State<Leaderboard> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//         child: Text("Hellooo", style: homeScreen1,)),
+//     );
+//   }
+// }

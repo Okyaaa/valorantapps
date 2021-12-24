@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:valoranapps/api_service/api_service.dart';
+import 'package:valoranapps/constants/style_constant.dart';
 import 'package:valoranapps/model/agent_model.dart';
-import 'package:valoranapps/model/kayo_model.dart';
 import 'package:valoranapps/widget/tabWidget.dart';
 
 class Skye extends StatefulWidget {
@@ -56,15 +56,28 @@ class _SkyeState extends State<Skye> {
                         return Column(
                           children: [
                             Center(
-                              child: Container(
-                                  width: size.width,
-                                  height: 500,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: NetworkImage(snapshot.data.data.fullPortrait),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  )),
+                              child: Stack(
+                              children: [
+                                Positioned(
+                                  top: 160,
+                                  right: 30,
+                                  child: Text(
+                                    "Skye",
+                                    style: skyeStyle1,
+                                  ),
+                                ),
+                                Container(
+                                    width: size.width,
+                                    height: 500,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: NetworkImage(
+                                            snapshot.data.data.fullPortrait),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    )),
+                              ],
+                            )
                             ),
                           ],
                         );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:valoranapps/api_service/api_service.dart';
+import 'package:valoranapps/constants/style_constant.dart';
 import 'package:valoranapps/model/agent_model.dart';
 import 'package:valoranapps/widget/tabWidget.dart';
 
@@ -55,15 +56,28 @@ class _SovaState extends State<Sova> {
                         return Column(
                           children: [
                             Center(
-                              child: Container(
-                                  width: size.width,
-                                  height: 500,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: NetworkImage("https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltf11234f4775729b7/5ebf2c275e73766852c8d5d4/V_AGENTS_587x900_ALL_Sova_2.png"),
-                                      fit: BoxFit.fill,
-                                    ),
-                                  )),
+                              child: Stack(
+                              children: [
+                                Positioned(
+                                  top: 160,
+                                  right: 30,
+                                  child: Text(
+                                    "Sova",
+                                    style: sovaStyle1,
+                                  ),
+                                ),
+                                Container(
+                                    width: size.width,
+                                    height: 500,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: NetworkImage(
+                                            "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltf11234f4775729b7/5ebf2c275e73766852c8d5d4/V_AGENTS_587x900_ALL_Sova_2.png"),
+                                        fit: BoxFit.fill,
+                                      ),
+                                    )),
+                              ],
+                            )
                             ),
                           ],
                         );

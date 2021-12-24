@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:valoranapps/constants/style_constant.dart';
 
+// ignore: must_be_immutable
 class TabWidget extends StatefulWidget {
   TabWidget(
       {this.image1,

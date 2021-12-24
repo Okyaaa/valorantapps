@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:valoranapps/constants/style_constant.dart';
-import 'package:valoranapps/widget/tutorialCard.dart';
 import 'package:valoranapps/widget/videoCard.dart';
-import 'package:valoranapps/youtube/youtube.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class ThrowingScreen extends StatefulWidget {
   @override

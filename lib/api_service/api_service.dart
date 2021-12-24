@@ -268,6 +268,7 @@ class APIservice {
   }
 
   Future<AgentModel> getDataReyna() async {
+    // ignore: non_constant_identifier_names
     var Reyna;
 
     try {
@@ -332,7 +333,7 @@ class APIservice {
 
     try {
       final response = await http.get(Uri.parse(
-          "https://ap.api.riotgames.com/val/ranked/v1/leaderboards/by-act/a16955a5-4ad0-f761-5e9e-389df1c892fb?size=50&startIndex=0&api_key=RGAPI-7bd058b9-ff8e-4e57-ba3b-d59a09a1139f"));
+          "https://ap.api.riotgames.com/val/ranked/v1/leaderboards/by-act/a16955a5-4ad0-f761-5e9e-389df1c892fb?size=50&startIndex=0&api_key=RGAPI-82c9a30b-cf74-47dd-819c-c4ce0d3a814b"));
       print(response.statusCode.toString());
       if (response.statusCode == 200) {
         final jsonString = response.body;

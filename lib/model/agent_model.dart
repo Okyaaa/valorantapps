@@ -4,6 +4,7 @@
 
 import 'dart:convert';
 
+// ignore: non_constant_identifier_names
 AgentModel SyModelFromJson(String str) => AgentModel.fromJson(json.decode(str));
 
 String kayoModelToJson(AgentModel data) => json.encode(data.toJson());

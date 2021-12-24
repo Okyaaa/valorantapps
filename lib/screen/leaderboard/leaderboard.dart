@@ -13,8 +13,8 @@ class Leaderboard extends StatefulWidget {
 }
 
 class _LeaderboardState extends State<Leaderboard> {
-  // Future<LeaderboardModel> _leaderboard = APIservice().getDataLeaderboard();
-  Future<LeaderboardModel> _leaderboard = APIservice().getDataLeaderboard();
+
+  Future<LeaderboardModel> _leaderboard;
 
   @override
   void initState() {
@@ -79,20 +79,3 @@ class _LeaderboardState extends State<Leaderboard> {
     );
   }
 }
-
-// class Leaderboard extends StatefulWidget {
-//   Leaderboard({Key key}) : super(key: key);
-
-//   @override
-//   _LeaderboardState createState() => _LeaderboardState();
-// }
-
-// class _LeaderboardState extends State<Leaderboard> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Center(
-//         child: Text("Hellooo", style: homeScreen1,)),
-//     );
-//   }
-// }

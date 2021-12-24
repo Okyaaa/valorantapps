@@ -4,6 +4,7 @@
 
 import 'dart:convert';
 
+// ignore: non_constant_identifier_names
 KayoModel SyModelFromJson(String str) => KayoModel.fromJson(json.decode(str));
 
 String kayoModelToJson(KayoModel data) => json.encode(data.toJson());

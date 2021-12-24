@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+
 import 'package:valoranapps/constants/style_constant.dart';
 
+// ignore: must_be_immutable
 class TurorialCard extends StatefulWidget {
   Color color;
   String title;
   String image;
 
-  TurorialCard({this.color, this.title, this.image});
+  TurorialCard({
+    Key key,
+    this.color,
+    this.title,
+    this.image,
+  }) : super(key: key);
 
   @override
   _TurorialCardState createState() => _TurorialCardState();
